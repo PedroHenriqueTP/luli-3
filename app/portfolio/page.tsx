@@ -34,9 +34,9 @@ export default function LuliPortfolio() {
           className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden mb-8 border-[6px] border-[#E8DCC4] shadow-2xl relative z-10"
         >
           <img 
-            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80" 
-            alt="Luciana Penna" 
-            className="w-full h-full object-cover filter contrast-125 sepia-[.15]"
+            src="/assets/hero.png" 
+            alt="Luciana Penna - 3D Aesthetic" 
+            className="w-full h-full object-cover filter contrast-[1.1] transition-transform duration-1000 hover:scale-110"
           />
         </motion.div>
         
@@ -145,9 +145,9 @@ export default function LuliPortfolio() {
                   transition={{ duration: 0.6 }}
                   src={item.src} 
                   alt={item.alt} 
-                  className="w-full h-full object-cover filter brightness-[0.85] sepia-[.10] group-hover:brightness-100 group-hover:sepia-0 transition-all duration-700"
+                  className="w-full h-full object-cover filter brightness-[0.85] sepia-[.10] group-hover:brightness-100 group-hover:sepia-0 transition-all duration-1000"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1C2833]/90 via-[#1C2833]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1C2833]/90 via-[#1C2833]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex flex-col justify-end p-6 backdrop-blur-[2px]">
                   <h3 className="text-white font-serif font-bold text-xl mb-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">{item.alt}</h3>
                   <span className="text-[#E8DCC4] font-medium text-sm translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">{item.desc}</span>
                 </div>
