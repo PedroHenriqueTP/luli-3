@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { BookOpen, ArrowRight, Instagram, Camera, Mail, ShieldCheck, Lock, CreditCard } from "lucide-react";
+import { BookOpen, ArrowRight, Camera, Mail, ShieldCheck, Lock, CreditCard } from "lucide-react";
 
 export default function LucianaPortfolioExpanded() {
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
@@ -209,7 +209,7 @@ export default function LucianaPortfolioExpanded() {
             <Camera size={14} /> VSCO
           </a>
           <a href="https://instagram.com/luci.penna" className="text-[#8B8378] hover:text-[#D4AF37] transition-colors flex items-center gap-2 font-sans text-xs uppercase tracking-widest">
-            <Instagram size={14} /> Instagram
+            Instagram
           </a>
         </div>
       </footer>
