@@ -1,193 +1,136 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Camera, MapPin, Briefcase, BookOpen, Music, Plane, GraduationCap, ChevronRight, Mail, Code } from "lucide-react";
+import { BookOpen, PenTool, Feather, ArrowRight, Instagram, Mail } from "lucide-react";
 
-export default function LuliPortfolioBento() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.95 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      scale: 1,
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
-    },
-  };
-
+export default function LucianaPortfolioClassic() {
   return (
-    <div className="min-h-screen bg-[#0A0F16] text-[#E2E8F0] font-sans selection:bg-[#3B82F6] selection:text-white p-4 md:p-8">
-      
-      <motion.div 
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[250px]"
-      >
-        
-        {/* 1. HERO BLOCK (2x2) */}
-        <motion.div 
-          variants={itemVariants}
-          className="md:col-span-2 md:row-span-2 rounded-3xl overflow-hidden relative group bg-[#111827] border border-[#1F2937]"
-        >
-          <img 
-            src="/assets/hero.png" 
-            alt="Luciana Penna" 
-            className="absolute inset-0 w-full h-full object-cover filter brightness-[0.6] saturate-50 group-hover:scale-105 group-hover:saturate-100 transition-all duration-1000"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F16] via-[#0A0F16]/40 to-transparent p-8 flex flex-col justify-end">
-            <h1 className="text-4xl md:text-5xl font-serif font-bold text-white mb-2">Luciana Penna</h1>
-            <h2 className="text-[#60A5FA] font-medium tracking-widest uppercase text-xs md:text-sm mb-4">
-              Smart Tech Philosophy & Social Media
-            </h2>
-            <p className="text-[#94A3B8] font-light max-w-md leading-relaxed text-sm md:text-base">
-              Fundindo teorias filosóficas clássicas com estratégias de tecnologia imersiva. 
-              Criando marcas com alma no ecossistema corporativo.
-            </p>
-          </div>
-        </motion.div>
+    <div className="min-h-screen bg-[#FDFBF7] text-[#2C2A25] font-serif selection:bg-[#D4AF37] selection:text-white">
+      {/* Background Texture (Linen simulation) */}
+      <div className="fixed inset-0 pointer-events-none opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/linen.png')] mix-blend-multiply" />
 
-        {/* 2. COMPETÊNCIAS (1x2) */}
-        <motion.div 
-          variants={itemVariants}
-          className="md:col-span-1 md:row-span-2 rounded-3xl bg-gradient-to-br from-[#1E293B] to-[#0F172A] border border-[#334155] p-8 flex flex-col justify-between hover:border-[#60A5FA]/50 transition-colors duration-500"
-        >
-          <div>
-            <div className="flex items-center gap-3 mb-6 text-[#60A5FA]">
-              <Code size={24} />
-              <h3 className="font-serif text-xl font-bold text-white">Competências</h3>
-            </div>
-            <ul className="space-y-4">
-              {[
-                { title: "Pensamento Analítico", desc: "Teoria de valor e ética" },
-                { title: "Social Media Strategy", desc: "Domínio do nicho econômico" },
-                { title: "Gestão de Crise", desc: "Comunicação assertiva corporativa" },
-                { title: "Storytelling Filosófico", desc: "Narrativas de longo prazo" }
-              ].map((skill, i) => (
-                <li key={i} className="group">
-                  <h4 className="text-[#E2E8F0] font-medium text-sm group-hover:text-[#60A5FA] transition-colors">{skill.title}</h4>
-                  <p className="text-[#64748B] text-xs mt-1">{skill.desc}</p>
-                </li>
-              ))}
-            </ul>
+      {/* Navigation */}
+      <nav className="fixed w-full top-0 bg-[#FDFBF7]/90 backdrop-blur-md z-50 border-b border-[#D4AF37]/20">
+        <div className="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+          <span className="text-sm font-sans tracking-[0.2em] uppercase text-[#8B8378]">Luciana Penna</span>
+          <div className="flex gap-6 text-sm font-sans tracking-wide">
+            <a href="#sobre" className="hover:text-[#D4AF37] transition-colors">Sobre</a>
+            <a href="#escrita" className="hover:text-[#D4AF37] transition-colors">Pensamento</a>
+            <a href="#contato" className="hover:text-[#D4AF37] transition-colors">Contato</a>
           </div>
-          <div className="pt-6 mt-6 border-t border-[#334155]/50">
-            <p className="text-[#94A3B8] text-xs italic">"A técnica sem filosofia é vazia; a filosofia sem ação é estéril."</p>
-          </div>
-        </motion.div>
+        </div>
+      </nav>
 
-        {/* 3. EXPERIENCE / INTERNSHIPS (1x1) */}
+      {/* 1. HERO SECTION */}
+      <main className="max-w-5xl mx-auto px-6 pt-40 pb-24 grid md:grid-cols-2 gap-12 items-center">
         <motion.div 
-          variants={itemVariants}
-          className="md:col-span-1 md:row-span-1 rounded-3xl bg-[#111827] border border-[#1F2937] p-8 flex flex-col justify-center hover:bg-[#1E293B] transition-colors duration-500"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="flex flex-col justify-center"
         >
-          <Briefcase className="text-[#93C5FD] mb-4" size={28} />
-          <h3 className="font-serif text-lg font-bold text-white mb-2">Trajetória Corporativa</h3>
-          <p className="text-[#94A3B8] text-xs leading-relaxed mb-4">
-            Passagens estratégicas por consultorias e empresas de tecnologia, 
-            operando na intersecção entre dados e comportamento humano.
+          <div className="w-12 h-[1px] bg-[#D4AF37] mb-8" />
+          <h1 className="text-5xl md:text-6xl font-normal leading-tight mb-6 text-[#1A1A1A]">
+            Economia Política,<br/>
+            <span className="italic text-[#8B8378]">Leitura & Pensamento.</span>
+          </h1>
+          <p className="font-sans text-[#5C5A55] max-w-sm leading-relaxed font-light mb-10 text-sm md:text-base">
+            "A verdadeira transformação ocorre na intersecção entre o rigor acadêmico e a clareza da transmissão de ideias."
           </p>
-          <a href="#" className="text-[#60A5FA] text-sm font-medium flex items-center gap-1 hover:gap-2 transition-all">
-            Ver Histórico <ChevronRight size={16} />
-          </a>
-        </motion.div>
-
-        {/* 4. LIFESTYLE: VIAGENS (1x1) */}
-        <motion.div 
-          variants={itemVariants}
-          className="md:col-span-1 md:row-span-1 rounded-3xl overflow-hidden relative group"
-        >
-          <img 
-            src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80" 
-            alt="Viagens e Expansão" 
-            className="absolute inset-0 w-full h-full object-cover filter brightness-[0.7] group-hover:scale-110 transition-transform duration-1000"
-          />
-          <div className="absolute inset-0 bg-[#0A0F16]/30 group-hover:bg-transparent transition-colors duration-500" />
-          <div className="absolute bottom-6 left-6 flex items-center gap-2">
-            <Plane size={20} className="text-white" />
-            <span className="text-white font-medium text-sm drop-shadow-lg">Viagens & Visão</span>
+          <div className="flex gap-4 items-center">
+            <a href="#escrita" className="text-xs font-sans uppercase tracking-widest border border-[#2C2A25] px-6 py-3 hover:bg-[#2C2A25] hover:text-[#FDFBF7] transition-colors">
+              Ler Ensaios
+            </a>
           </div>
         </motion.div>
 
-        {/* 5. LIFESTYLE: ARTE & TEATRO (1x2) */}
         <motion.div 
-          variants={itemVariants}
-          className="md:col-span-1 md:row-span-2 rounded-3xl overflow-hidden relative group"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, delay: 0.2 }}
+          className="relative"
         >
+          {/* O frame da foto usa linhas finas e estilo clássico */}
+          <div className="absolute inset-0 border border-[#D4AF37]/40 translate-x-4 translate-y-4" />
           <img 
-            src="https://images.unsplash.com/photo-1507676184212-d0330a15233c?w=800&q=80" 
-            alt="Teatro e Arte" 
-            className="absolute inset-0 w-full h-full object-cover filter brightness-[0.5] group-hover:brightness-[0.8] group-hover:scale-105 transition-all duration-1000"
+            src="/assets/luci2.png" 
+            alt="Luciana Penna" 
+            className="relative z-10 w-full h-[600px] object-cover grayscale-[10%] sepia-[5%] contrast-100"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F16] to-transparent opacity-80" />
-          <div className="absolute bottom-8 left-8 right-8">
-            <h3 className="font-serif text-2xl font-bold text-white mb-2">Teatro & Expressão</h3>
-            <p className="text-[#94A3B8] text-sm leading-relaxed">
-              A presença de palco e a dramaturgia moldando oratória corporativa de alto impacto.
-            </p>
-          </div>
         </motion.div>
+      </main>
 
-        {/* 6. ACADÊMICO (1x1) */}
-        <motion.div 
-          variants={itemVariants}
-          className="md:col-span-1 md:row-span-1 rounded-3xl bg-[#0F172A] border border-[#1E293B] p-8 flex flex-col justify-center items-center text-center hover:border-[#60A5FA]/40 transition-colors duration-500"
-        >
-          <GraduationCap className="text-[#3B82F6] mb-3" size={32} />
-          <h3 className="text-white font-serif font-bold text-lg mb-1">Academia</h3>
-          <p className="text-[#64748B] text-xs">A base teórica sólida que sustenta a prática no mercado financeiro.</p>
-        </motion.div>
+      {/* 2. SOBRE / ACADEMIA */}
+      <section id="sobre" className="bg-[#FAF8F2] py-24 border-y border-[#D4AF37]/20">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <Feather className="mx-auto text-[#D4AF37] mb-6" size={24} />
+          <h2 className="text-3xl mb-8">Inteligência Silenciosa</h2>
+          <p className="font-sans text-[#5C5A55] leading-loose max-w-2xl mx-auto font-light text-justify">
+            Mestranda em Economia Política, Luciana Penna dedica-se à construção do pensamento sólido.
+            Longe das narrativas rasas e do imediatismo das redes corporativas, seu trabalho reside na 
+            profundidade: na leitura clássica, na filosofia aplicada e na capacidade de traduzir a complexidade 
+            do mundo em valor real e transmissível.
+          </p>
+        </div>
+      </section>
 
-        {/* 7. LIFESTYLE: MÚSICA (1x1) */}
-        <motion.div 
-          variants={itemVariants}
-          className="md:col-span-1 md:row-span-1 rounded-3xl overflow-hidden relative group"
-        >
-          <img 
-            src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800&q=80" 
-            alt="Música" 
-            className="absolute inset-0 w-full h-full object-cover filter brightness-[0.6] group-hover:scale-110 transition-transform duration-1000"
-          />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-[#0A0F16]/60 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2 border border-white/10">
-              <Music size={16} className="text-white" />
-              <span className="text-white text-xs font-medium">Soundscapes</span>
+      {/* 3. PENSAMENTO / ESCRITA */}
+      <section id="escrita" className="max-w-5xl mx-auto px-6 py-24">
+        <div className="flex items-center gap-4 mb-16">
+          <div className="w-8 h-[1px] bg-[#D4AF37]" />
+          <h2 className="text-2xl tracking-wide">Textos & Ensaios</h2>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-12">
+          {[
+            { title: "A Ética no Valor Econômico", date: "Julho 2026", desc: "Uma reflexão sobre como a filosofia clássica molda as decisões modernas de alocação de recursos." },
+            { title: "Dialética e Mercado", date: "Junho 2026", desc: "Como a compreensão dos ciclos históricos permite uma leitura mais profunda das crises financeiras." },
+            { title: "A Estética do Pensamento", date: "Maio 2026", desc: "O papel da leitura densa na formação do raciocínio analítico contemporâneo." }
+          ].map((post, i) => (
+            <div key={i} className="group cursor-pointer border-b border-[#E6E1D6] pb-8 hover:border-[#D4AF37] transition-colors">
+              <span className="font-sans text-[10px] uppercase tracking-widest text-[#D4AF37] mb-3 block">{post.date}</span>
+              <h3 className="text-xl mb-3 group-hover:text-[#8B8378] transition-colors">{post.title}</h3>
+              <p className="font-sans text-sm text-[#5C5A55] font-light leading-relaxed mb-4">{post.desc}</p>
+              <div className="flex items-center gap-2 text-[11px] font-sans uppercase tracking-widest text-[#2C2A25] group-hover:text-[#D4AF37] transition-colors">
+                Ler Artigo <ArrowRight size={12} />
+              </div>
             </div>
-          </div>
-        </motion.div>
+          ))}
+        </div>
+      </section>
 
-        {/* 8. CONTATO E REDES (1x1) */}
-        <motion.div 
-          variants={itemVariants}
-          className="md:col-span-1 md:row-span-1 rounded-3xl bg-gradient-to-br from-[#3B82F6] to-[#1D4ED8] p-8 flex flex-col justify-between shadow-[0_0_40px_rgba(59,130,246,0.2)]"
-        >
-          <div className="text-white">
-            <h3 className="font-serif font-bold text-2xl mb-1">Let's Talk.</h3>
-            <p className="text-white/80 text-sm">Pronta para redefinir narrativas.</p>
-          </div>
-          <div className="flex gap-3 mt-4">
-            <a href="#" className="w-10 h-10 rounded-full bg-white/20 hover:bg-white flex items-center justify-center text-white hover:text-[#1D4ED8] transition-all backdrop-blur-sm">
-              <Mail size={18} />
-            </a>
-            <a href="https://vsco.co/lucipenna" target="_blank" className="w-10 h-10 rounded-full bg-white/20 hover:bg-white flex items-center justify-center text-white hover:text-[#1D4ED8] transition-all backdrop-blur-sm">
-              <Camera size={18} />
-            </a>
-            <a href="https://instagram.com/lucipenna" target="_blank" className="w-10 h-10 rounded-full bg-white/20 hover:bg-white flex items-center justify-center text-white hover:text-[#1D4ED8] transition-all backdrop-blur-sm">
-              <MapPin size={18} />
-            </a>
-          </div>
-        </motion.div>
-      </motion.div>
-      
+      {/* 4. LEITURAS / INFLUÊNCIAS (ASSET DA ESTANTE) */}
+      <section className="bg-[#2C2A25] text-[#FDFBF7] py-32 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <img src="/assets/luciana_bookshelf_clean.png" alt="Estante de Livros Clássicos" className="w-full h-full object-cover" />
+        </div>
+        <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
+          <BookOpen className="mx-auto text-[#D4AF37] mb-8" size={32} />
+          <h2 className="text-4xl mb-6">Fundamentos</h2>
+          <p className="font-sans text-[#A8A49C] max-w-lg mx-auto font-light leading-relaxed mb-10 text-sm">
+            Um repertório forjado na leitura. O conhecimento não é um acessório, mas a matéria-prima 
+            essencial para a compreensão econômica e política.
+          </p>
+        </div>
+      </section>
+
+      {/* 5. CONTATO */}
+      <footer id="contato" className="max-w-4xl mx-auto px-6 py-24 text-center">
+        <div className="w-px h-16 bg-[#D4AF37] mx-auto mb-10" />
+        <h2 className="text-3xl mb-8">Transmissão de Valor</h2>
+        <a href="mailto:contato@lucianapenna.com" className="font-sans text-sm tracking-widest uppercase hover:text-[#D4AF37] transition-colors inline-block mb-16">
+          contato@lucianapenna.com
+        </a>
+
+        <div className="flex justify-center gap-8 border-t border-[#E6E1D6] pt-12">
+          <a href="https://vsco.co/lucipenna" className="text-[#8B8378] hover:text-[#D4AF37] transition-colors flex items-center gap-2 font-sans text-xs uppercase tracking-widest">
+            <Camera size={14} /> VSCO
+          </a>
+          <a href="https://instagram.com/luci.penna" className="text-[#8B8378] hover:text-[#D4AF37] transition-colors flex items-center gap-2 font-sans text-xs uppercase tracking-widest">
+            <Instagram size={14} /> Instagram
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }
